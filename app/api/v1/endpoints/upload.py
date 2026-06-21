@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
+from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, Request
 from sqlalchemy.orm import Session
 import uuid
 from datetime import datetime
@@ -7,16 +7,21 @@ from PIL import Image
 import io
 
 from app.db import get_db
-from app.models import ProcessingJob, JobStatus
+from app.models import ProcessingJob, JobStatus, APIKey
 from app.services.validator import validate_image
 from app.services.sanitizer import sanitize_image
 from app.workers.tasks import process_image_task
+from app.api.middleware.auth import verify_api_key
+from app.api.middleware.rate_limit import limiter
 
 router = APIRouter()
 
 @router.post("/upload")
+@limiter.limit("100/minute")
 async def upload_image(
+    request: Request,
     file: UploadFile = File(...),
+    api_key: APIKey = Depends(verify_api_key),
     db: Session = Depends(get_db)
 ):
     # 1. Dosyayı validate et
@@ -32,7 +37,8 @@ async def upload_image(
         original_filename=file.filename,
         original_size=file.size or len(content),
         status=JobStatus.PENDING,
-        created_at=datetime.utcnow()
+        created_at=datetime.utcnow(),
+        api_key_id=api_key.id if api_key else None
     )
     db.add(job)
     db.commit()
