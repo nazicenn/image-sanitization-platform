@@ -32,3 +32,4 @@ passlib[bcrypt]==1.7.4
 # Utils
 httpx==0.25.0
 orjson==3.9.10
+slowapi==0.1.9
