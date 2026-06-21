@@ -8,6 +8,7 @@ from datetime import datetime
 
 from app.db import get_db, engine, Base
 from app.api import router as api_router
+from app.utils.metrics import get_metrics
 
 load_dotenv()
 
@@ -54,6 +55,11 @@ async def ready(db: Session = Depends(get_db)):
     except Exception as e:
         return {"status": "not ready", "database": "disconnected", "error": str(e)}
 
+@app.get("/metrics")
+async def metrics():
+    return get_metrics()
+
+    
 if __name__ == "__main__":
     uvicorn.run(
         "app.main:app",
