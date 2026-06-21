@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import uvicorn
@@ -14,7 +14,7 @@ load_dotenv()
 
 # Veritabanı tablolarını oluştur
 Base.metadata.create_all(bind=engine)
-print("Database tables created")
+print("✅ Database tables created")
 
 app = FastAPI(
     title="Image Sanitization Platform",
@@ -59,7 +59,6 @@ async def ready(db: Session = Depends(get_db)):
 async def metrics():
     return get_metrics()
 
-    
 if __name__ == "__main__":
     uvicorn.run(
         "app.main:app",
