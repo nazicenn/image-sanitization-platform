@@ -1,84 +1,126 @@
-🛡️ Image Sanitization Platform
+# 🛡️ Image Sanitization Platform
 
-Enterprise-grade privacy-focused image processing pipeline for metadata sanitization, optimization, and forensic trace reduction.
+> Enterprise-grade privacy-focused image processing pipeline for metadata sanitization, optimization, and forensic trace reduction.
 
-Overview
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python">
+  <img src="https://img.shields.io/badge/FastAPI-Production-green?style=for-the-badge&logo=fastapi">
+  <img src="https://img.shields.io/badge/Docker-Containerized-blue?style=for-the-badge&logo=docker">
+  <img src="https://img.shields.io/badge/Kubernetes-Scalable-326ce5?style=for-the-badge&logo=kubernetes">
+  <img src="https://img.shields.io/badge/License-MIT-black?style=for-the-badge">
+</p>
 
-Image Sanitization Platform is a scalable, production-ready image processing system designed for secure and privacy-conscious media handling.
+---
+
+# 📖 Overview
+
+**Image Sanitization Platform** is a scalable and production-ready image processing infrastructure designed for secure and privacy-conscious media handling.
 
 The platform provides:
 
-Advanced metadata sanitization
-Image optimization and compression
-Asynchronous distributed processing
-Secure API-based architecture
-Monitoring and observability stack
-Modular forensic-cleaning pipeline
+* Metadata sanitization
+* Image optimization & compression
+* Distributed asynchronous processing
+* Secure API architecture
+* Monitoring & observability stack
+* Advanced forensic-cleaning pipeline
 
-Built with a modern cloud-native architecture using FastAPI, Celery, Redis, PostgreSQL, MinIO, and Docker/Kubernetes.
+Built with a modern cloud-native stack using:
 
-✨ Core Capabilities
-Metadata Sanitization
+* FastAPI
+* Celery
+* Redis
+* PostgreSQL
+* MinIO
+* Docker
+* Kubernetes
 
-Completely removes embedded metadata from uploaded images:
+---
 
-EXIF metadata
-IPTC metadata
-XMP metadata
-PNG textual chunks
-Camera/device information
-GPS coordinates
-Timestamps and software signatures
-Image Optimization
+# ✨ Features
 
-Automatic image optimization pipeline:
+## 🔒 Metadata Sanitization
 
-WEBP conversion
-Smart compression
-Resolution normalization
-Thumbnail generation
-Storage-efficient encoding
-Forensic Cleaning Pipeline
+Removes embedded metadata from uploaded images:
 
-Multi-stage image normalization and artifact reduction system:
+* EXIF metadata
+* IPTC metadata
+* XMP metadata
+* PNG textual chunks
+* Camera information
+* GPS coordinates
+* Device signatures
+* Timestamps
 
-Frequency-domain normalization
-Compression artifact balancing
-Color-space normalization
-Texture distribution smoothing
-Sensor-noise equalization
-Statistical image refinement
-Distributed Async Processing
+---
 
-Built for scalability using background workers:
+## 🖼️ Image Optimization
 
-Celery task queues
-Redis broker/backend
-Retry mechanisms
-Parallel processing
-Queue monitoring
-Job lifecycle tracking
-Enterprise Security
+Automatic optimization pipeline:
+
+* WEBP conversion
+* Smart compression
+* Resolution normalization
+* Thumbnail generation
+* Storage-efficient encoding
+
+---
+
+## 🧠 Forensic Cleaning Pipeline
+
+Multi-stage image normalization system:
+
+* Frequency-domain normalization
+* Compression artifact balancing
+* Color-space normalization
+* Texture smoothing
+* Sensor-noise equalization
+* Statistical refinement
+
+---
+
+## ⚡ Async Distributed Processing
+
+Scalable background processing architecture:
+
+* Celery task queues
+* Redis broker/backend
+* Retry mechanisms
+* Parallel workers
+* Queue monitoring
+* Job lifecycle tracking
+
+---
+
+## 🛡️ Security
 
 Security-first architecture:
 
-API key authentication
-Rate limiting
-File validation
-MIME verification
-CORS policies
-Structured logging
-Monitoring & Observability
+* API Key authentication
+* Rate limiting
+* File validation
+* MIME verification
+* Structured logging
+* CORS protection
 
-Integrated observability stack:
+---
 
-Prometheus metrics
-Grafana dashboards
-Health probes
-Queue monitoring
-Processing duration metrics
-Structured JSON logs
-🏗️ Architecture
+## 📊 Monitoring & Observability
+
+Integrated monitoring stack:
+
+* Prometheus metrics
+* Grafana dashboards
+* Health probes
+* Queue metrics
+* Processing duration metrics
+* Structured JSON logs
+
+---
+
+# 🏗️ System Architecture
+
+```text
 Client
    │
    ▼
@@ -98,42 +140,74 @@ FastAPI Application
             ▼
  Monitoring Stack
 (Prometheus + Grafana)
-🧰 Technology Stack
-Backend
-Technology	Purpose
-Python 3.10	Core programming language
-FastAPI	High-performance API framework
-SQLAlchemy	ORM layer
-Alembic	Database migrations
-Celery	Distributed task queue
-Redis	Broker & caching
-Pillow	Image manipulation
-OpenCV	Computer vision operations
-Scikit-Image	Image processing algorithms
-Frontend
-Technology	Purpose
-React 18	Frontend framework
-TypeScript	Type-safe development
-Vite	Build tooling
-Tailwind CSS	UI styling
-Axios	API communication
-Infrastructure
-Technology	Purpose
-Docker	Containerization
-Kubernetes	Orchestration
-Nginx	Reverse proxy
-GitHub Actions	CI/CD
-Terraform	Infrastructure as Code
-Storage & Data
-Technology	Purpose
-PostgreSQL	Relational database
-TimescaleDB	Time-series extension
-MinIO	S3-compatible object storage
-Monitoring
-Technology	Purpose
-Prometheus	Metrics collection
-Grafana	Visualization dashboards
-📁 Project Structure
+```
+
+---
+
+# 🧰 Technology Stack
+
+## Backend
+
+| Technology   | Purpose                |
+| ------------ | ---------------------- |
+| Python 3.10  | Core language          |
+| FastAPI      | API framework          |
+| SQLAlchemy   | ORM                    |
+| Alembic      | Database migrations    |
+| Celery       | Distributed task queue |
+| Redis        | Broker & caching       |
+| Pillow       | Image processing       |
+| OpenCV       | Computer vision        |
+| Scikit-Image | Processing algorithms  |
+
+---
+
+## Frontend
+
+| Technology   | Purpose            |
+| ------------ | ------------------ |
+| React 18     | Frontend framework |
+| TypeScript   | Type safety        |
+| Vite         | Build tooling      |
+| Tailwind CSS | UI styling         |
+| Axios        | API communication  |
+
+---
+
+## Infrastructure
+
+| Technology     | Purpose                |
+| -------------- | ---------------------- |
+| Docker         | Containerization       |
+| Kubernetes     | Orchestration          |
+| Nginx          | Reverse proxy          |
+| GitHub Actions | CI/CD                  |
+| Terraform      | Infrastructure as Code |
+
+---
+
+## Storage & Database
+
+| Technology  | Purpose               |
+| ----------- | --------------------- |
+| PostgreSQL  | Relational database   |
+| TimescaleDB | Time-series extension |
+| MinIO       | Object storage        |
+
+---
+
+## Monitoring
+
+| Technology | Purpose            |
+| ---------- | ------------------ |
+| Prometheus | Metrics collection |
+| Grafana    | Visualization      |
+
+---
+
+# 📁 Project Structure
+
+```text
 image-sanitization-platform/
 │
 ├── app/
@@ -161,40 +235,72 @@ image-sanitization-platform/
 ├── API.md
 ├── ARCHITECTURE.md
 └── DEPLOYMENT.md
-🚀 API Endpoints
-Method	Endpoint	Description	Authentication
-POST	/api/v1/upload	Upload and process image	✅
-GET	/api/v1/status/{job_id}	Retrieve processing status	❌
-GET	/api/v1/download/{job_id}	Download processed image	❌
-GET	/health	Liveness probe	❌
-GET	/ready	Readiness probe	❌
-GET	/metrics	Prometheus metrics	❌
-⚙️ Processing Pipeline
-1. Upload Validation
-File integrity validation
-MIME verification
-Size limitation checks
-Security validation
-2. Metadata Sanitization
-EXIF removal
-XMP cleanup
-IPTC cleanup
-PNG chunk stripping
-3. Image Optimization
-Compression
-Resizing
-Format conversion
-Thumbnail generation
-4. Forensic Cleaning
-Frequency normalization
-Noise balancing
-Texture harmonization
-Compression normalization
-5. Secure Delivery
-Object storage upload
-Signed retrieval
-Download endpoint generation
-🔐 Security Features
+```
+
+---
+
+# 🚀 API Endpoints
+
+| Method | Endpoint                    | Description                | Auth |
+| ------ | --------------------------- | -------------------------- | ---- |
+| POST   | `/api/v1/upload`            | Upload & process image     | ✅    |
+| GET    | `/api/v1/status/{job_id}`   | Retrieve processing status | ❌    |
+| GET    | `/api/v1/download/{job_id}` | Download processed image   | ❌    |
+| GET    | `/health`                   | Liveness probe             | ❌    |
+| GET    | `/ready`                    | Readiness probe            | ❌    |
+| GET    | `/metrics`                  | Prometheus metrics         | ❌    |
+
+---
+
+# ⚙️ Processing Pipeline
+
+## 1. Upload Validation
+
+* File integrity validation
+* MIME verification
+* Size limitation checks
+* Security validation
+
+---
+
+## 2. Metadata Sanitization
+
+* EXIF cleanup
+* XMP cleanup
+* IPTC cleanup
+* PNG chunk stripping
+
+---
+
+## 3. Image Optimization
+
+* Compression
+* Resizing
+* Format conversion
+* Thumbnail generation
+
+---
+
+## 4. Forensic Cleaning
+
+* Frequency normalization
+* Noise balancing
+* Texture harmonization
+* Compression normalization
+
+---
+
+## 5. Secure Delivery
+
+* Object storage upload
+* Signed retrieval
+* Download endpoint generation
+
+---
+
+# 🔐 Security Features
+
+```text
 ✔ API Key Authentication
 ✔ Request Rate Limiting
 ✔ File Integrity Validation
@@ -203,73 +309,143 @@ Download endpoint generation
 ✔ CORS Policies
 ✔ Async Isolation
 ✔ Secure Object Storage
-📊 Monitoring Stack
-Prometheus Metrics
+```
+
+---
+
+# 📊 Monitoring Stack
+
+## Prometheus Metrics
 
 Tracked metrics include:
 
-Queue sizes
-Processing durations
-Request throughput
-Error rates
-Worker health
-Storage usage
-Grafana Dashboards
+* Queue sizes
+* Processing durations
+* Request throughput
+* Error rates
+* Worker health
+* Storage usage
+
+---
+
+## Grafana Dashboards
 
 Included dashboards:
 
-API performance
-Worker activity
-Queue analytics
-Infrastructure monitoring
-System health overview
-🚀 Quick Start
-Prerequisites
-Docker
-Docker Compose
-Python 3.10+
-Node.js 18+
-Clone Repository
+* API performance
+* Worker activity
+* Queue analytics
+* Infrastructure monitoring
+* System health overview
+
+---
+
+# 🚀 Quick Start
+
+## Prerequisites
+
+* Docker
+* Docker Compose
+* Python 3.10+
+* Node.js 18+
+
+---
+
+## Clone Repository
+
+```bash
 git clone https://github.com/nazicenn/image-sanitization-platform.git
 cd image-sanitization-platform
-Environment Configuration
+```
+
+---
+
+## Environment Configuration
+
+```bash
 cp .env.example .env
+```
 
-Update your environment variables.
+Update environment variables as needed.
 
-Start Services
+---
+
+## Start Services
+
+```bash
 docker-compose up -d --build
-Access Services
-Service	URL
-API	http://localhost:8000
-Swagger Docs	http://localhost:8000/docs
-MinIO Console	http://localhost:9001
-Prometheus	http://localhost:9090
-Grafana	http://localhost:3000
-Frontend	http://localhost:5173
-🧪 Example Request
+```
+
+---
+
+# 🌐 Service URLs
+
+| Service       | URL                        |
+| ------------- | -------------------------- |
+| API           | http://localhost:8000      |
+| Swagger Docs  | http://localhost:8000/docs |
+| MinIO Console | http://localhost:9001      |
+| Prometheus    | http://localhost:9090      |
+| Grafana       | http://localhost:3000      |
+| Frontend      | http://localhost:5173      |
+
+---
+
+# 🧪 Example Request
+
+```bash
 curl -X POST \
   -H "X-API-Key: your-api-key" \
   -F "file=@image.jpg" \
   http://localhost:8000/api/v1/upload
-🐳 Docker Services
-Container	Description
-sanitizer-api	FastAPI backend
-sanitizer-db	PostgreSQL database
-sanitizer-redis	Redis broker
-sanitizer-storage	MinIO object storage
-sanitizer-worker	Celery worker
-sanitizer-prometheus	Prometheus
-sanitizer-grafana	Grafana
-🧪 Testing
-Backend Tests
+```
+
+---
+
+# 🐳 Docker Services
+
+| Container            | Description          |
+| -------------------- | -------------------- |
+| sanitizer-api        | FastAPI backend      |
+| sanitizer-db         | PostgreSQL database  |
+| sanitizer-redis      | Redis broker         |
+| sanitizer-storage    | MinIO object storage |
+| sanitizer-worker     | Celery worker        |
+| sanitizer-prometheus | Prometheus           |
+| sanitizer-grafana    | Grafana              |
+
+---
+
+# 🧪 Testing
+
+## Backend Tests
+
+```bash
 pytest tests/ -v --cov=app
-Frontend Tests
+```
+
+---
+
+## Frontend Tests
+
+```bash
 cd frontend
 npm test
-Load Testing
+```
+
+---
+
+## Load Testing
+
+```bash
 k6 run load-test.js
-📦 Environment Variables
+```
+
+---
+
+# 📦 Environment Variables
+
+```env
 # Database
 DB_HOST=postgres
 DB_PORT=5432
@@ -293,55 +469,76 @@ RATE_LIMIT_PER_MINUTE=100
 # Logging
 LOG_LEVEL=INFO
 LOG_FORMAT=json
-☁️ Deployment
+```
 
-The platform supports:
+---
 
-Docker Compose deployments
-Kubernetes deployments
-Cloud-native scaling
-Horizontal worker scaling
-Infrastructure-as-Code provisioning
-📈 Scalability
+# ☁️ Deployment
+
+Supported deployment environments:
+
+* Docker Compose
+* Kubernetes
+* Cloud-native infrastructure
+* Horizontal worker scaling
+* Infrastructure-as-Code provisioning
+
+---
+
+# 📈 Scalability
 
 Designed for production workloads:
 
-Stateless API architecture
-Horizontally scalable workers
-Distributed task queues
-Object-storage abstraction
-Cloud-native infrastructure
-🤝 Contributing
+* Stateless API architecture
+* Horizontally scalable workers
+* Distributed task queues
+* Object-storage abstraction
+* Cloud-native infrastructure
+
+---
+
+# 🤝 Contributing
 
 Contributions are welcome.
 
-Development Workflow
-Fork the repository
-Create a feature branch
-Commit changes
-Push updates
-Open a Pull Request
-📄 License
+## Development Workflow
 
-This project is licensed under the MIT License.
+1. Fork the repository
+2. Create a feature branch
+3. Commit changes
+4. Push updates
+5. Open a Pull Request
 
-👨‍💻 Author
+---
 
-Developed by nazicenn
+# 📄 License
 
-GitHub Repository:
+Licensed under the **MIT License**.
 
-image-sanitization-platform
+---
 
-⭐ Acknowledgements
+# 👨‍💻 Author
+
+Developed by **nazicenn**
+
+GitHub:
+https://github.com/nazicenn
+
+---
+
+# ⭐ Acknowledgements
 
 Special thanks to the communities behind:
 
-FastAPI
-Celery
-PostgreSQL
-MinIO
-OpenCV
-<div align="center">
-Built for secure, scalable, privacy-first image processing.
-</div>
+* FastAPI
+* Celery
+* PostgreSQL
+* MinIO
+* OpenCV
+* Pillow
+
+---
+
+<p align="center">
+  Built for secure, scalable, privacy-first image processing.
+</p>
