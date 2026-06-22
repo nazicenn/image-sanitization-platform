@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: celery-worker
+  namespace: image-sanitization
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: celery-worker
+  template:
+    metadata:
+      labels:
+        app: celery-worker
+    spec:
+      containers:
+      - name: celery-worker
+        image: image-sanitization-worker:latest
+        imagePullPolicy: IfNotPresent
+        command: ["celery"]
+        args: ["-A", "app.workers.celery_app", "worker", "--loglevel=info", "--concurrency=2"]
+        env:
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_PORT
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_NAME
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: DB_PASSWORD
+        - name: REDIS_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: REDIS_HOST
+        - name: REDIS_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: REDIS_PORT
+        - name: CELERY_BROKER_URL
+          value: redis://redis:6379/0
+        - name: CELERY_RESULT_BACKEND
+          value: redis://redis:6379/0
+        - name: MINIO_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MINIO_ENDPOINT
+        - name: MINIO_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: MINIO_ACCESS_KEY
+        - name: MINIO_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: MINIO_SECRET_KEY
+        - name: MINIO_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MINIO_BUCKET
+        - name: STORAGE_TYPE
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: STORAGE_TYPE
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: LOG_LEVEL
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
