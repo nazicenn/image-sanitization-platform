@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: image-sanitization
+data:
+  DB_HOST: postgres
+  DB_PORT: "5432"
+  DB_NAME: sanitizer
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+  MINIO_ENDPOINT: minio:9000
+  MINIO_BUCKET: sanitized-images
+  LOG_LEVEL: INFO
+  STORAGE_TYPE: minio
