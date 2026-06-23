@@ -43,8 +43,6 @@ Built with a modern cloud-native stack using:
 
 ---
 
-# ✨ Features
-
 ## 🔒 Metadata Sanitization
 
 Removes embedded metadata from uploaded images:
